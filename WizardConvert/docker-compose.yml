@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  wizardconvert:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./temp_downloads:/app/temp_downloads
+    environment:
+      - SESSION_SECRET=your_secret_key_here
+    restart: unless-stopped
